@@ -1,0 +1,488 @@
+$green: #75c9b1;
+$d-green: #23646f;
+$yellow: #f5e9c7;
+$pink: #e87e70;
+$white: #fff;
+
+@mixin pseduo-div( $w, $h, $c ) {
+  content: '';
+  width: $w;
+  height: $h;
+  position: absolute;
+  background-color: $c;
+}
+
+@mixin w-h ( $w, $h ) {
+  width: $w;
+  height: $h;
+}
+
+body {
+  margin: 0;
+  background: $yellow;
+  background: linear-gradient( $yellow, darken( $yellow, 5 ), darken( $yellow, 5 ) 92vmin, $pink calc( 92vmin + 1px ), darken( $pink, 5 ));
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+}
+
+.clouds {
+  position: absolute;
+  @include w-h( 100%, 100% );
+  top: 0;
+  left: 50%;
+  transform: translate3d( -50%, 0, 0 );
+
+  div,
+  div::before,
+  div::after {
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    bottom: 0;
+  }
+
+  div {
+    background-color: lighten( $pink, 12 );
+    position: absolute;
+
+    &:first-child {
+      @include w-h( 20vmin, 10vmin );
+      top: 5%;
+      left: 10%;
+
+      &::before {
+        @include pseduo-div( 50%, 50%, lighten( $pink, 16 ));
+        left: -20%;
+      }
+
+      &::after {
+        @include pseduo-div( 30%, 30%, lighten( $pink, 14 ));
+        right: -15%;
+      }
+    }
+
+    &:last-child {
+      @include w-h( 30vmin, 15vmin );
+      top: 15%;
+      right: 15%;
+
+      &::before {
+        @include pseduo-div( 40%, 40%, lighten( $pink, 17 ));
+        left: -15%;
+      }
+
+      &::after {
+        @include pseduo-div( 70%, 70%, lighten( $pink, 15 ));
+        right: -25%;
+      }
+    }
+  }
+}
+
+.alpaca {
+  @include w-h( 50vmin, 80vmin );
+
+  &__top,
+  &__btm {
+    @include w-h( 100%, 50% );
+    position: relative;
+  }
+
+  &__top {
+    justify-content: space-between;
+  }
+}
+
+.head {
+  @include w-h( 40%, 100% );
+  position: relative;
+  align-items: flex-end;
+
+  &__ears {
+    @include w-h( 100%, 28% );
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    div {
+      background-color: $green;
+      @include w-h( 25%, 100% );
+      width: 25%;
+      position: relative;
+
+      &::after {
+        @include pseduo-div( 62%, 72%, $d-green );
+        bottom: 5%;
+      }
+
+      &:first-child,
+      &:first-child::after {
+        border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      }
+
+      &:first-child {
+        transform-origin: 100% 100%;
+        transform: rotate( 0 );
+        animation: twitch-ear-left 10s 3s infinite ease-in-out;
+
+        &::after {
+          right: 10%;
+        }
+      }
+
+      &:last-child,
+      &:last-child::after {
+        border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+      }
+
+      &:last-child {
+        transform-origin: 0 100%;
+        transform: rotate( 0deg );
+        animation: twitch-ear-right 10s 3.1s infinite ease-in-out;
+
+        &::after {
+          left: 10%;
+        }
+      }
+    }
+  }
+
+  &__face-neck {
+    @include w-h( 100%, 75% );
+    background-color: $green;
+    border-radius: 50% 50% 0 0 / 30% 30% 0 0;
+
+    .face {
+      position: relative;
+      @include w-h( 100%, 40% );
+      flex-direction: column;
+      align-items: center;
+      margin-top: 36%;
+
+      &::before {
+        @include pseduo-div( 70%, 100%, lighten( $green, 10 ) );
+        border-radius: 50%;
+      }
+    }
+
+    .eyes,
+    .cheeks,
+    .nose,
+    .mouth {
+      z-index: 10;
+    }
+
+    .eyes {
+      @include w-h( 76%, 45% );
+      justify-content: space-between;
+      margin-top: -5%;
+
+      div {
+        @include w-h( 35%, 100% );
+        background-color: $white;
+        border-radius: 50%;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+
+        &::after {
+          @include pseduo-div( 45%, 45%, $d-green );
+          border-radius: 50%;
+          animation: blink 5s infinite ease-in-out;
+        }
+      }
+    }
+
+    .cheeks {
+      @include w-h( 90%, 25% );
+      justify-content: space-between;
+      margin-top: 3%;
+
+      div {
+        @include w-h( 18%, 100% );
+        background-color: $pink;
+        border-radius: 50%;
+      }
+    }
+
+    .snout {
+      position: absolute;
+      @include w-h( 77%, 70% );
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      bottom: -4%;
+
+      &::before {
+        @include pseduo-div( 70%, 100%, lighten( $green, 18 ) );
+        border-radius: 50%;
+      }
+    }
+
+    .nose {
+      @include w-h( 20%, 15% );
+      background-color: $d-green;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      margin-top: 5%;
+    }
+
+    .mouth {
+      @include w-h( 50%, 25% );
+      background-color: $d-green;
+      border-radius: 0 0 50% 50% / 0 0 100% 100%;
+      margin-top: 5%;
+      animation: smile 4s 0.5s infinite ease-in-out;
+    }
+  }
+}
+
+.tail {
+  border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+  background-color: $green;
+  @include w-h( 10%, 30% );
+  align-self: flex-end;
+  transform-origin: 0% 100%;
+  transform: rotate( 0 );
+  animation: flick-tail 8s 1.5s infinite ease-in-out;
+}
+
+.body {
+  background-color: $green;
+  @include w-h( 90%, 55% );
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 0 50% 50% / 0 0 60% 60%;
+  align-items: center;
+  justify-content: flex-end;
+
+  .spots,
+  .spots::after,
+  .spots::before {
+    border-radius: 50%;
+  }
+
+  .spots {
+    @include w-h( 0, 0 );
+    position: relative;
+    right: 16%;
+    bottom: 13%;
+    border-top: 6.5vmin solid lighten( $green, 15 );
+    border-right: 2.5vmin solid transparent;
+    border-left: 2.5vmin solid transparent;
+
+    &::before,
+    &::after {
+      @include pseduo-div( 0, 0, transparent );
+      border-top: 5vmin solid lighten( $green, 15 );
+      border-right: 2vmin solid transparent;
+      border-left: 2vmin solid transparent;
+      transform-origin: 50% 0;
+    }
+
+    &::before {
+      left: -130%;
+      transform: rotate( 55deg ) translate3d( 0, -90%, 0);
+    }
+
+    &::after {
+      right: -130%;
+      transform: rotate( -55deg ) translate3d( 0, -90%, 0);
+    }
+  }
+}
+
+.legs {
+  @include w-h( 90%, 100% );
+  justify-content: space-between;
+
+  &__front,
+  &__back {
+    @include w-h( 45%, 100% );
+    position: relative;
+
+    div {
+      @include w-h( 55%, 90% );
+      background-color: $green;
+      position: absolute;
+
+      &::after {
+        @include pseduo-div( 35%, 50%, $green );
+        bottom: -20%;
+      }
+
+      &:first-child,
+      &:first-child::after {
+        background-color: $d-green;
+      }
+    }
+  }
+
+  &__front {
+    div {
+      border-radius: 0 0 100% 100% / 0 0 25% 25%;
+
+      &:first-child::after,
+      &:last-child::after {
+        left: 50%;
+        transform: translate3d( -50%, 0, 0 );
+      }
+
+      &:last-child {
+        right: 0;
+      }
+    }
+  }
+
+  &__back {
+    div {
+      border-radius: 0 0 0 100% / 0 0 0 30%;
+
+      &:last-child,
+      &:last-child::after,
+      &:first-child::after {
+        right: 0;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% {
+    height: 45%;
+  }
+
+  2% {
+    height: 0%;
+  }
+
+  4% {
+    height: 45%;
+  }
+
+  6% {
+    height: 0%;
+  }
+
+  8% {
+    height: 45%;
+  }
+
+  100% {
+    height: 45%;
+  }
+}
+
+@keyframes flick-tail {
+  0% {
+    transform: rotate( 0 );
+  }
+
+  2% {
+    transform: rotate( 45deg );
+  }
+
+  6% {
+    transform: rotate( -10deg );
+  }
+
+  9% {
+    transform: rotate( 45deg );
+  }
+
+  12% {
+    transform: rotate( 0 );
+  }
+
+  100% {
+    transform: rotate( 0 );
+  }
+}
+
+@keyframes twitch-ear-left {
+  0% {
+    transform: rotate( 0deg );
+  }
+
+  5% {
+    transform: rotate( -45deg );
+  }
+
+  8% {
+    transform: rotate( 0deg );
+  }
+
+  100% {
+    transform: rotate( 0sdeg );
+  }
+}
+
+@keyframes twitch-ear-right {
+  0% {
+    transform: rotate( 0deg );
+  }
+
+  5% {
+    transform: rotate( 45deg );
+  }
+
+  8% {
+    transform: rotate( 0deg );
+  }
+
+  51% {
+    transform: rotate( 0deg );
+  }
+
+  53% {
+    transform: rotate( 45deg );
+  }
+
+  55% {
+    transform: rotate( 0deg );
+  }
+
+  100% {
+    transform: rotate( 0deg );
+  }
+}
+
+@keyframes smile {
+  0% {
+    height: 25%;
+  }
+
+  70% {
+    height: 25%;
+  }
+
+  75% {
+    height: 40%;
+  }
+
+  80% {
+    height: 40%;
+  }
+
+  85% {
+    height: 5%;
+  }
+
+  90% {
+    height: 20%;
+  }
+
+  95% {
+    height: 5%;
+  }
+
+  100% {
+    height: 25%;
+  }
+}
