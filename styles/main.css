@@ -12,6 +12,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, #008ed8), color-stop(65.1%, #cecbcb), color-stop(75%, #dad8d8));
+  background: linear-gradient(#008ed8 65%, #cecbcb 65.1%, #dad8d8 75%);
 }
 
 .spiken {
@@ -21,7 +23,18 @@ body {
   height: 90vmin;
   background-repeat: no-repeat;
   background-position: center;
-  border: 1px solid red;
+}
+
+.spiken::before {
+  content: '';
+  width: 42vmin;
+  height: 7vmin;
+  position: absolute;
+  background-color: green;
+  top: 79.1%;
+  left: 26.6%;
+  border-radius: 50%;
+  background: radial-gradient(#594a3e, transparent 68%);
 }
 
 .spiken .top {
@@ -242,4 +255,18 @@ body {
 
 .base input {
   position: absolute;
+}
+
+.base label {
+  width: 3.5vmin;
+  height: 3.5vmin;
+  position: absolute;
+  top: 45%;
+  left: 43.5%;
+  border-radius: 20% / 20%;
+  -webkit-box-shadow: 0.2vmin -0.15vmin 0.2vmin #1eac9f;
+          box-shadow: 0.2vmin -0.15vmin 0.2vmin #1eac9f;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background: radial-gradient(circle at 52% 50%, #80c6bf 0.85vmin, transparent 0.85vmin), radial-gradient(circle at 46% 51.5%, #1eac9f 0.85vmin, transparent 0.88vmin), linear-gradient(185deg, #80c6bf, #a3d6d1 80%, #b5deda);
 }
