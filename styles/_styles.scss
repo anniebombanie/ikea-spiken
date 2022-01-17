@@ -45,14 +45,12 @@ body {
   }
 }
 .spiken {
-  // background-image: url('../resources/spiken-led-night-light-otter-shaped-battery-operated-multicolour__0831193_pe777009_s5.jpg');
   position: relative;
   background-size: 900px;
   width: 90vmin;
   height: 90vmin;
   background-repeat: no-repeat;
   background-position: center;
-  // border: 1px solid red;
 
   // shadow
   &::before {
@@ -290,7 +288,6 @@ body {
   }
   .base {
     @include w-h(26vmin, 10vmin);
-    // border: 1px solid red;
     position: absolute;
     top: 74.8%;
     left: 35.4%;
@@ -309,7 +306,6 @@ body {
     &::after {
       @include pseduo-div(26vmin, 5.8vmin, $t);
       border-radius: 0 0 15% 15% / 0 0 20% 20%;
-      // border: 1px solid red;
       box-shadow: inset 0vmin -0.1vmin lighten($tl, 10%);
       top: -30%;
       background: linear-gradient(
