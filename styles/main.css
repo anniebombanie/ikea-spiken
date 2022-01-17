@@ -101,7 +101,7 @@ body {
   position: absolute;
   top: 24.2%;
   left: 41.8%;
-  background: radial-gradient(circle at 22% 9%, #e1e1df 1%, transparent 1.2%), radial-gradient(circle at 22% 10.8%, #181818 4.2%, transparent 4.5%), radial-gradient(circle at 22.5% 12.3%, #f6f6f6 4.2%, transparent 4.5%), radial-gradient(circle at 78.5% 9%, #e1e1df 1%, transparent 1.2%), radial-gradient(circle at 78.5% 10.8%, #181818 4.2%, transparent 4.5%), radial-gradient(circle at 79.5% 11.5%, #f6f6f6 4.2%, transparent 4.5%);
+  background: radial-gradient(circle at 22% 9%, #e1e1df 0.8%, transparent 1.5%), radial-gradient(circle at 22% 10.8%, #181818 4.2%, transparent 4.5%), radial-gradient(circle at 22.5% 12.3%, #f6f6f6 4.2%, transparent 4.5%), radial-gradient(circle at 78.5% 9%, #e1e1df 0.8%, transparent 1.5%), radial-gradient(circle at 78.5% 10.8%, #181818 4.2%, transparent 4.5%), radial-gradient(circle at 79.5% 11.5%, #f6f6f6 4.2%, transparent 4.5%);
   /* nose */
 }
 
@@ -115,8 +115,8 @@ body {
   top: 50%;
   left: 40%;
   border-radius: 50% / 45% 45% 50% 50%;
-  -webkit-box-shadow: inset -0.1vmin -0.1vmin 0.4vmin #dc6e64;
-          box-shadow: inset -0.1vmin -0.1vmin 0.4vmin #dc6e64;
+  -webkit-box-shadow: inset 0.1vmin 0.1vmin 0.4vmin #f8e2e0, inset -0.1vmin -0.1vmin 0.4vmin #dc6e64;
+          box-shadow: inset 0.1vmin 0.1vmin 0.4vmin #f8e2e0, inset -0.1vmin -0.1vmin 0.4vmin #dc6e64;
   background: radial-gradient(ellipse at 36% 36%, #fbeeed 10%, transparent 18%), #eaa8a2;
 }
 
@@ -233,18 +233,14 @@ body {
   height: 7vmin;
   position: absolute;
   top: 43%;
-  -webkit-box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
-          box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
 }
 
 .spiken .top .arm--l::after, .spiken .top .arm--r::after {
   content: '';
-  width: 1.2vmin;
+  width: 2.5vmin;
   height: 3vmin;
   position: absolute;
   background-color: transparent;
-  border: 1px solid green;
-  border-radius: 50% / 30% 30% 0 0;
 }
 
 .spiken .top .arm--l {
@@ -257,16 +253,32 @@ body {
 }
 
 .spiken .top .arm--l::after {
-  left: 50%;
+  top: -43.5%;
+  left: 20%;
+  border-radius: 50% / 30% 30% 0 0;
+  -webkit-transform: rotate(10deg);
+          transform: rotate(10deg);
+  -webkit-box-shadow: inset 0.3vmin 0.6vmin 0.4vmin #ededec, inset 0.3vmin 0.1vmin 0.2vmin #ededec, inset -0.5vmin 0.3vmin 0.5vmin #d7d7d4;
+          box-shadow: inset 0.3vmin 0.6vmin 0.4vmin #ededec, inset 0.3vmin 0.1vmin 0.2vmin #ededec, inset -0.5vmin 0.3vmin 0.5vmin #d7d7d4;
 }
 
 .spiken .top .arm--r {
-  border-radius: 50% / 0 30% 30% 30%;
-  -webkit-box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #ededec;
-          box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #ededec;
+  border-radius: 50% / 0 0 30% 30%;
+  -webkit-box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #f5f5f4, 0.5vmin 0.4vmin 1vmin -0.5vmin #c8c8c5;
+          box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #f5f5f4, 0.5vmin 0.4vmin 1vmin -0.5vmin #c8c8c5;
   -webkit-transform: rotate(40deg);
           transform: rotate(40deg);
   left: 56.5%;
+}
+
+.spiken .top .arm--r::after {
+  top: -44.8%;
+  left: -9%;
+  border-radius: 50% / 30% 30% 0 0;
+  -webkit-transform: rotate(-10deg);
+          transform: rotate(-10deg);
+  -webkit-box-shadow: inset -0.3vmin 0.2vmin 0.4vmin #ebebea, inset -0.3vmin 0.2vmin 0.2vmin #ebebea, inset 0.5vmin 0.2vmin 0.5vmin #f5f5f4;
+          box-shadow: inset -0.3vmin 0.2vmin 0.4vmin #ebebea, inset -0.3vmin 0.2vmin 0.2vmin #ebebea, inset 0.5vmin 0.2vmin 0.5vmin #f5f5f4;
 }
 
 .base {

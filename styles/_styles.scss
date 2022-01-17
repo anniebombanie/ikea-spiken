@@ -115,12 +115,12 @@ body {
       background:
       /* eyes */ radial-gradient(
           circle at 22% 9%,
-          $w 1%,
-          $t 1.2%
+          $w 0.8%,
+          $t 1.5%
         ),
         radial-gradient(circle at 22% 10.8%, $bk 4.2%, $t 4.5%),
         radial-gradient(circle at 22.5% 12.3%, $wl 4.2%, $t 4.5%),
-        radial-gradient(circle at 78.5% 9%, $w 1%, $t 1.2%),
+        radial-gradient(circle at 78.5% 9%, $w 0.8%, $t 1.5%),
         radial-gradient(circle at 78.5% 10.8%, $bk 4.2%, $t 4.5%),
         radial-gradient(circle at 79.5% 11.5%, $wl 4.2%, $t 4.5%);
 
@@ -131,7 +131,8 @@ body {
         top: 50%;
         left: 40%;
         border-radius: 50% / 45% 45% 50% 50%;
-        box-shadow: inset -0.1vmin -0.1vmin 0.4vmin darken($p, 15%);
+        box-shadow: inset 0.1vmin 0.1vmin 0.4vmin lighten($p, 15%),
+          inset -0.1vmin -0.1vmin 0.4vmin darken($p, 15%);
         background: radial-gradient(
             ellipse at 36% 36%,
             lighten($p, 18%) 10%,
@@ -239,12 +240,9 @@ body {
         @include w-h(2.8vmin, 7vmin);
         position: absolute;
         top: 43%;
-        box-shadow: inset -0.5vmin -0.6vmin 0.5vmin darken($w, 4%);
 
         &::after {
-          @include pseduo-div(1.2vmin, 3vmin, $t);
-          border: 1px solid green;
-          border-radius: 50% / 30% 30% 0 0;
+          @include pseduo-div(2.5vmin, 3vmin, $t);
         }
       }
       &--l {
@@ -254,15 +252,31 @@ body {
         left: 40.5%;
 
         &::after {
-          left: 50%;
+          top: -43.5%;
+          left: 20%;
+          border-radius: 50% / 30% 30% 0 0;
+          transform: rotate(10deg);
+          box-shadow: inset 0.3vmin 0.6vmin 0.4vmin lighten($w, 5%),
+            inset 0.3vmin 0.1vmin 0.2vmin lighten($w, 5%),
+            inset -0.5vmin 0.3vmin 0.5vmin darken($w, 4%);
         }
       }
       &--r {
-        // border: 1px solid green;
-        border-radius: 50% / 0 30% 30% 30%;
-        box-shadow: inset 0.5vmin -0.6vmin 0.5vmin lighten($w, 5%);
+        border-radius: 50% / 0 0 30% 30%;
+        box-shadow: inset 0.5vmin -0.6vmin 0.5vmin lighten($w, 8%),
+          0.5vmin 0.4vmin 1vmin -0.5vmin darken($w, 10%);
         transform: rotate(40deg);
         left: 56.5%;
+
+        &::after {
+          top: -44.8%;
+          left: -9%;
+          border-radius: 50% / 30% 30% 0 0;
+          transform: rotate(-10deg);
+          box-shadow: inset -0.3vmin 0.2vmin 0.4vmin lighten($w, 4%),
+            inset -0.3vmin 0.2vmin 0.2vmin lighten($w, 4%),
+            inset 0.5vmin 0.2vmin 0.5vmin lighten($w, 8%);
+        }
       }
     }
   }
