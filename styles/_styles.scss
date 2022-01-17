@@ -1,17 +1,12 @@
-$green: #75c9b1;
-$d-green: #23646f;
-$yellow: #f5e9c7;
-$pink: #e87e70;
-$white: #fff;
-
-:root {
-  --w: #e7e7e7;
-  --b: #008ed8;
-  --p: #eaa8a2;
-  --g: green;
-  --bk: black;
-  --t: transparent;
-}
+$w: #e1e1df;
+$wl: #f6f6f6;
+$b: #008ed8;
+$p: #eaa8a2;
+$g: green;
+$bk: #181818;
+$gy: #70706b;
+$tl: #a3d6d1;
+$t: transparent;
 
 @mixin pseduo-div($w, $h, $c) {
   content: '';
@@ -20,7 +15,6 @@ $white: #fff;
   position: absolute;
   background-color: $c;
 }
-
 @mixin w-h($w, $h) {
   width: $w;
   height: $h;
@@ -28,8 +22,7 @@ $white: #fff;
 
 body {
   margin: 0;
-  background: $yellow;
-  background: var(--b);
+  background: $b;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -37,110 +30,197 @@ body {
   overflow: hidden;
 }
 
-.flex {
-  display: flex;
-}
-
 .spiken {
-  //   background-image: url('../resources/spiken-led-night-light-otter-shaped-battery-operated-multicolour__0831193_pe777009_s5.jpg');
+  // background-image: url('../resources/spiken-led-night-light-otter-shaped-battery-operated-multicolour__0831193_pe777009_s5.jpg');
+  position: relative;
   background-size: 900px;
   width: 90vmin;
   height: 90vmin;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative;
   border: 1px solid red;
 
-  &__body {
-    @include w-h(27.5vmin, 56vmin);
-    position: absolute;
-    top: 14.5%;
-    left: 34.6%;
-    border-radius: 47% 47% 35% 35% / 33% 33% 19% 19%;
-    background: radial-gradient(
-        circle at 35.5% 16.8%,
-        var(--w) 0.2%,
-        var(--t) 0.5%
-      ),
-      radial-gradient(circle at 35.5% 17%, var(--bk) 1%, var(--t) 1.2%),
-      radial-gradient(circle at 66.5% 16.8%, var(--w) 0.2%, var(--t) 0.5%),
-      var(--t) radial-gradient(circle at 66.5% 17%, var(--bk) 1%, var(--w) 1.2%);
-
-    // ears
-    &::before,
-    &::after {
-      @include pseduo-div(12.6%, 7%, var(--p));
-      top: -1.5%;
-      border-radius: 50% 50% 0% 0% / 50% 50% 0% 0%;
-      box-shadow: inset 0.6vmin 0.27vmin var(--w),
-        inset -0.6vmin 0.27vmin var(--w), inset 0 0.6vmin var(--w);
-      background: radial-gradient(
-        circle at 50% 250%,
-        var(--w) 65%,
-        var(--p) 65.5%
+  .top {
+    /* teal part */
+    &:before {
+      @include pseduo-div(27.5vmin, 13vmin, $t);
+      top: 62.5%;
+      left: 34.6%;
+      // border: 1px solid green;
+      border-radius: 0 0 50% 50% / 35% 35% 100% 100%;
+      box-shadow: inset 0.5vmin 0.5vmin 1.1vmin lighten($tl, 15%);
+      background: linear-gradient(
+        90deg,
+        $tl,
+        darken($tl, 10%) 30%,
+        darken($tl, 10%) 80%,
+        $tl
       );
     }
-    &::before {
-      left: 18%;
-      transform: rotate(-35deg);
+    .body {
+      @include w-h(27.5vmin, 47vmin);
+      position: absolute;
+      top: 14.5%;
+      left: 34.6%;
+      box-shadow: inset 0.5vmin 0 1.1vmin $w, inset -0 -0.1vmin 0.5vmin $w;
+      border-radius: 45% 45% 45% 45% / 40% 40% 8% 8%;
+      // border: 1px solid red;
+      background: radial-gradient(circle at 35% 25%, $wl 5%, $t 25%),
+        linear-gradient(90deg, $wl, $w 25%, $w 80%, $wl);
+
+      /* ears */
+      &::before,
+      &::after {
+        @include pseduo-div(12.6%, 8%, $p);
+        top: -1.5%;
+        border-radius: 50% 50% 0 0 / 50% 50% 0 0;
+        box-shadow: inset 0.6vmin 0.27vmin $w, inset -0.6vmin 0.27vmin $w,
+          inset 0 0.6vmin $w;
+        background: radial-gradient(
+          circle at 50% 250%,
+          $w 65%,
+          $p 65.5%,
+          darken($p, 10%)
+        );
+      }
+      &::before {
+        left: 18%;
+        transform: rotate(-35deg);
+      }
+      &::after {
+        left: 70%;
+        transform: rotate(35deg);
+      }
     }
+    .face {
+      @include w-h(15vmin, 6vmin);
+      position: absolute;
+      top: 24.2%;
+      left: 41.8%;
+      // border: 1px solid green;
+      background:
+      /* eyes */ radial-gradient(
+          circle at 22% 9%,
+          $w 1%,
+          $t 1.2%
+        ),
+        radial-gradient(circle at 22% 10.8%, $bk 4.2%, $t 4.5%),
+        radial-gradient(circle at 22.5% 12.3%, $wl 4.2%, $t 4.5%),
+        radial-gradient(circle at 78.5% 9%, $w 1%, $t 1.2%),
+        radial-gradient(circle at 78.5% 10.8%, $bk 4.2%, $t 4.5%),
+        radial-gradient(circle at 79.5% 11.5%, $wl 4.2%, $t 4.5%);
+
+      /* nose */
+      &::before {
+        @include pseduo-div(3vmin, 2.1vmin, $p);
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        border-radius: 50% / 45% 45% 50% 50%;
+        box-shadow: inset -0.1vmin -0.1vmin 0.2vmin darken($p, 15%);
+        background: radial-gradient(ellipse at 36% 36%, $w 10%, $t 20%), $p;
+      }
+
+      &--left-whiskers,
+      &--right-whiskers {
+        position: absolute;
+        @include w-h(4.7vmin, 0.3vmin);
+      }
+      &--left-whiskers,
+      &--left-whiskers::before,
+      &--left-whiskers::after {
+        border-radius: 10% 20% 20% 10% / 50%;
+        transform: skew(0);
+        background: linear-gradient(90deg, $gy, $bk);
+      }
+      &--left-whiskers {
+        top: 45%;
+        left: 6%;
+        transform: rotate(20deg);
+
+        &::before,
+        &::after {
+          @include pseduo-div(4.8vmin, 0.3vmin, $bk);
+        }
+        &::before {
+          top: 390%;
+          left: 5%;
+          transform: rotate(-15deg);
+        }
+        &::after {
+          top: 780%;
+          left: 16%;
+          transform: rotate(-26deg);
+        }
+      }
+      &--right-whiskers,
+      &--right-whiskers::before,
+      &--right-whiskers::after {
+        border-radius: 20% 10% 10% 20% / 50%;
+        background: linear-gradient(90deg, $bk, $gy);
+      }
+      &--right-whiskers {
+        top: 45%;
+        left: 63%;
+        transform: rotate(-20deg);
+
+        &::before,
+        &::after {
+          @include pseduo-div(4.8vmin, 0.3vmin, $bk);
+        }
+        &::before {
+          top: 420%;
+          left: -5%;
+          transform: rotate(15deg);
+        }
+        &::after {
+          top: 770%;
+          left: -16%;
+          transform: rotate(26deg);
+        }
+      }
+    }
+  }
+  .base {
+    @include w-h(26vmin, 10vmin);
+    // border: 1px solid red;
+    position: absolute;
+    top: 74.8%;
+    left: 35.4%;
+    box-shadow: inset -0.3vmin 0.2vmin 0.5vmin darken($tl, 15%);
+    border-radius: 25% 12% 12% 15% / 20% 20% 11% 11%;
+    background: linear-gradient(lighten($tl, 35%), $t 35%),
+      linear-gradient(
+        90deg,
+        lighten($tl, 10%),
+        darken($tl, 5%) 15%,
+        darken($tl, 10%),
+        $tl
+      ),
+      linear-gradient(-97deg, $t 2%, $tl 2.35%, $tl 80%, $t 80%);
+
     &::after {
-      left: 70%;
-      transform: rotate(35deg);
+      @include pseduo-div(26vmin, 5.8vmin, $t);
+      border-radius: 0 0 15% 15% / 0 0 20% 20%;
+      // border: 1px solid red;
+      box-shadow: inset 0vmin -0.1vmin lighten($tl, 10%);
+      top: -30%;
+      background: linear-gradient(
+          97deg,
+          $t 2%,
+          lighten($tl, 10%) 2.35%,
+          $tl 10%,
+          $tl 80%,
+          $t 90%
+        ),
+        linear-gradient(-97deg, $t 2%, darken($tl, 10%) 2.35%, $tl 40%, $t 80%);
+    }
+    input {
+      // visibility: hidden;
+      position: absolute;
     }
   }
 }
-// .clouds {
-//   position: absolute;
-//   @include w-h(100%, 100%);
-//   top: 0;
-//   left: 50%;
-//   transform: translate3d(-50%, 0, 0);
-
-//   div,
-//   div::before,
-//   div::after {
-//     border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-//     bottom: 0;
-//   }
-
-//   div {
-//     background-color: lighten($pink, 12);
-//     position: absolute;
-
-//     &:first-child {
-//       @include w-h(20vmin, 10vmin);
-//       top: 5%;
-//       left: 10%;
-
-//       &::before {
-//         @include pseduo-div(50%, 50%, lighten($pink, 16));
-//         left: -20%;
-//       }
-
-//       &::after {
-//         @include pseduo-div(30%, 30%, lighten($pink, 14));
-//         right: -15%;
-//       }
-//     }
-
-//     &:last-child {
-//       @include w-h(30vmin, 15vmin);
-//       top: 15%;
-//       right: 15%;
-
-//       &::before {
-//         @include pseduo-div(40%, 40%, lighten($pink, 17));
-//         left: -15%;
-//       }
-
-//       &::after {
-//         @include pseduo-div(70%, 70%, lighten($pink, 15));
-//         right: -25%;
-//       }
-//     }
-//   }
-// }
 
 // .alpaca {
 //   @include w-h(50vmin, 80vmin);
