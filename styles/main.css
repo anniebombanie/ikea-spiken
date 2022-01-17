@@ -12,8 +12,8 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(65%, #008ed8), color-stop(65.1%, #cecbcb), color-stop(75%, #dad8d8));
-  background: linear-gradient(#008ed8 65%, #cecbcb 65.1%, #dad8d8 75%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#336ba4), color-stop(65%, #008ed8), color-stop(65.1%, #cecbcb), color-stop(75%, #dad8d8));
+  background: linear-gradient(#336ba4, #008ed8 65%, #cecbcb 65.1%, #dad8d8 75%);
 }
 
 .spiken {
@@ -49,7 +49,7 @@ body {
   background-color: transparent;
   top: 62.5%;
   left: 34.6%;
-  border-radius: 0 0 50% 50% / 35% 35% 100% 100%;
+  border-radius: 0 0 55% 55% / 35% 35% 100% 100%;
   -webkit-box-shadow: inset 0 -0.2vmin 0.5vmin #1eac9f, inset 0.5vmin 0.5vmin 1vmin #d8eeeb, inset 0 -0.5vmin 1.5vmin #1eac9f;
           box-shadow: inset 0 -0.2vmin 0.5vmin #1eac9f, inset 0.5vmin 0.5vmin 1vmin #d8eeeb, inset 0 -0.5vmin 1.5vmin #1eac9f;
   background: -webkit-gradient(linear, left top, right top, from(#a3d6d1), color-stop(40%, #80c6bf), color-stop(80%, #91cec8), to(#a3d6d1));
@@ -65,8 +65,8 @@ body {
   -webkit-box-shadow: inset 0.5vmin 0 1.1vmin #e1e1df, inset 0 -0.1vmin 0.5vmin #afafab;
           box-shadow: inset 0.5vmin 0 1.1vmin #e1e1df, inset 0 -0.1vmin 0.5vmin #afafab;
   border-radius: 47% 47% 45% 45% / 38% 38% 8% 8%;
-  background: radial-gradient(circle at 35% 25%, #f6f6f6 5%, transparent 25%), -webkit-gradient(linear, left top, right top, from(#f6f6f6), color-stop(25%, #e1e1df), color-stop(80%, #e1e1df), to(#f6f6f6));
-  background: radial-gradient(circle at 35% 25%, #f6f6f6 5%, transparent 25%), linear-gradient(90deg, #f6f6f6, #e1e1df 25%, #e1e1df 80%, #f6f6f6);
+  background: radial-gradient(circle at 36% 28%, #f6f6f6 5%, transparent 25%), -webkit-gradient(linear, left top, right top, from(#f6f6f6), color-stop(25%, #e1e1df), color-stop(80%, #e1e1df), to(#f6f6f6));
+  background: radial-gradient(circle at 36% 28%, #f6f6f6 5%, transparent 25%), linear-gradient(90deg, #f6f6f6, #e1e1df 25%, #e1e1df 80%, #f6f6f6);
   /* ears */
 }
 
@@ -214,7 +214,7 @@ body {
 
 .spiken .top .feet::before {
   left: 1%;
-  border-radius: 15% 69% 40% 38% / 45% 81% 17% 36%;
+  border-radius: 15% 69% 40% 38% / 45% 81% 25% 36%;
   -webkit-box-shadow: inset -0.3vmin -0.2vmin 0.5vmin #1eac9f;
           box-shadow: inset -0.3vmin -0.2vmin 0.5vmin #1eac9f;
   background: radial-gradient(ellipse at 29% 29%, #cde9e6, transparent 20%), linear-gradient(99deg, #a3d6d1 10%, #a3d6d1 50%, #55b3aa);
@@ -222,10 +222,51 @@ body {
 
 .spiken .top .feet::after {
   right: 1%;
-  border-radius: 69% 15% 38% 40% / 81% 45% 36% 17%;
+  border-radius: 69% 15% 38% 40% / 81% 45% 36% 25%;
   -webkit-box-shadow: inset 0 -0.2vmin 0.5vmin #1eac9f;
           box-shadow: inset 0 -0.2vmin 0.5vmin #1eac9f;
   background: radial-gradient(ellipse at 30% 38%, #d8eeeb, transparent 20%), linear-gradient(99deg, #a3d6d1 30%, #80c6bf 70%, #a3d6d1);
+}
+
+.spiken .top .arm--l, .spiken .top .arm--r {
+  width: 2.8vmin;
+  height: 7vmin;
+  position: absolute;
+  top: 43%;
+  -webkit-box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
+          box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
+}
+
+.spiken .top .arm--l::after, .spiken .top .arm--r::after {
+  content: '';
+  width: 1.2vmin;
+  height: 3vmin;
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid green;
+  border-radius: 50% / 30% 30% 0 0;
+}
+
+.spiken .top .arm--l {
+  border-radius: 50% / 30% 0 30% 30%;
+  -webkit-box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
+          box-shadow: inset -0.5vmin -0.6vmin 0.5vmin #d7d7d4;
+  -webkit-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+  left: 40.5%;
+}
+
+.spiken .top .arm--l::after {
+  left: 50%;
+}
+
+.spiken .top .arm--r {
+  border-radius: 50% / 0 30% 30% 30%;
+  -webkit-box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #ededec;
+          box-shadow: inset 0.5vmin -0.6vmin 0.5vmin #ededec;
+  -webkit-transform: rotate(40deg);
+          transform: rotate(40deg);
+  left: 56.5%;
 }
 
 .base {
@@ -261,7 +302,7 @@ body {
   width: 3.5vmin;
   height: 3.5vmin;
   position: absolute;
-  top: 45%;
+  top: 46%;
   left: 43.5%;
   border-radius: 20% / 20%;
   -webkit-box-shadow: 0.2vmin -0.15vmin 0.2vmin #1eac9f;

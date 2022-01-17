@@ -29,7 +29,12 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient($b 65%, darken(#dad8d8, 5%) 65.1%, #dad8d8 75%);
+  background: linear-gradient(
+    #336ba4,
+    $b 65%,
+    darken(#dad8d8, 5%) 65.1%,
+    #dad8d8 75%
+  );
 }
 
 .spiken {
@@ -55,7 +60,7 @@ body {
       @include pseduo-div(27.5vmin, 13vmin, $t);
       top: 62.5%;
       left: 34.6%;
-      border-radius: 0 0 50% 50% / 35% 35% 100% 100%;
+      border-radius: 0 0 55% 55% / 35% 35% 100% 100%;
       box-shadow: inset 0 -0.2vmin 0.5vmin $tld,
         inset 0.5vmin 0.5vmin 1vmin lighten($tl, 15%),
         inset 0 -0.5vmin 1.5vmin $tld;
@@ -75,8 +80,7 @@ body {
       box-shadow: inset 0.5vmin 0 1.1vmin $w,
         inset -0 -0.1vmin 0.5vmin lighten($gy, 25%);
       border-radius: 47% 47% 45% 45% / 38% 38% 8% 8%;
-      // border: 1px solid red;
-      background: radial-gradient(circle at 35% 25%, $wl 5%, $t 25%),
+      background: radial-gradient(circle at 36% 28%, $wl 5%, $t 25%),
         linear-gradient(90deg, $wl, $w 25%, $w 80%, $wl);
 
       /* ears */
@@ -208,7 +212,7 @@ body {
       }
       &::before {
         left: 1%;
-        border-radius: 15% 69% 40% 38% / 45% 81% 17% 36%;
+        border-radius: 15% 69% 40% 38% / 45% 81% 25% 36%;
         box-shadow: inset -0.3vmin -0.2vmin 0.5vmin $tld;
         background: radial-gradient(
             ellipse at 29% 29%,
@@ -219,7 +223,7 @@ body {
       }
       &::after {
         right: 1%;
-        border-radius: 69% 15% 38% 40% / 81% 45% 36% 17%;
+        border-radius: 69% 15% 38% 40% / 81% 45% 36% 25%;
         box-shadow: inset 0 -0.2vmin 0.5vmin $tld;
         background: radial-gradient(
             ellipse at 30% 38%,
@@ -229,10 +233,38 @@ body {
           linear-gradient(99deg, $tl 30%, darken($tl, 10%) 70%, $tl);
       }
     }
-    // .arm {
-    //   &--l {
-    //   }
-    // }
+    .arm {
+      &--l,
+      &--r {
+        @include w-h(2.8vmin, 7vmin);
+        position: absolute;
+        top: 43%;
+        box-shadow: inset -0.5vmin -0.6vmin 0.5vmin darken($w, 4%);
+
+        &::after {
+          @include pseduo-div(1.2vmin, 3vmin, $t);
+          border: 1px solid green;
+          border-radius: 50% / 30% 30% 0 0;
+        }
+      }
+      &--l {
+        border-radius: 50% / 30% 0 30% 30%;
+        box-shadow: inset -0.5vmin -0.6vmin 0.5vmin darken($w, 4%);
+        transform: rotate(-40deg);
+        left: 40.5%;
+
+        &::after {
+          left: 50%;
+        }
+      }
+      &--r {
+        // border: 1px solid green;
+        border-radius: 50% / 0 30% 30% 30%;
+        box-shadow: inset 0.5vmin -0.6vmin 0.5vmin lighten($w, 5%);
+        transform: rotate(40deg);
+        left: 56.5%;
+      }
+    }
   }
 }
 .base {
@@ -277,14 +309,12 @@ body {
       );
   }
   input {
-    // visibility: hidden;
     position: absolute;
   }
   label {
     @include w-h(3.5vmin, 3.5vmin);
-    // border: 1px solid red;
     position: absolute;
-    top: 45%;
+    top: 46%;
     left: 43.5%;
     border-radius: 20% / 20%;
     box-shadow: 0.2vmin -0.15vmin 0.2vmin $tld;
