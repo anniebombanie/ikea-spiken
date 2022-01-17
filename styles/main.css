@@ -12,8 +12,15 @@ body {
       -ms-flex-align: center;
           align-items: center;
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(#336ba4), color-stop(65%, #008ed8), color-stop(65.1%, #cecbcb), color-stop(75%, #dad8d8));
-  background: linear-gradient(#336ba4, #008ed8 65%, #cecbcb 65.1%, #dad8d8 75%);
+  background: -webkit-gradient(linear, left top, left bottom, from(#336ba4), color-stop(65%, #008ed8), color-stop(65.1%, #cecbcb), color-stop(75%, #dddbdb));
+  background: linear-gradient(#336ba4, #008ed8 65%, #cecbcb 65.1%, #dddbdb 75%);
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    background: -webkit-gradient(linear, left top, left bottom, from(#336ba4), color-stop(60%, #008ed8), color-stop(60.1%, #cecbcb), color-stop(75%, #dad8d8));
+    background: linear-gradient(#336ba4, #008ed8 60%, #cecbcb 60.1%, #dad8d8 75%);
+  }
 }
 
 .spiken {
@@ -281,7 +288,7 @@ body {
           box-shadow: inset -0.3vmin 0.2vmin 0.4vmin #ebebea, inset -0.3vmin 0.2vmin 0.2vmin #ebebea, inset 0.5vmin 0.2vmin 0.5vmin #f5f5f4;
 }
 
-.base {
+.spiken .base {
   width: 26vmin;
   height: 10vmin;
   position: absolute;
@@ -293,7 +300,7 @@ body {
   background: linear-gradient(white, transparent 35%), linear-gradient(90deg, #c6e6e3, #91cec8 15%, #80c6bf, #a3d6d1), linear-gradient(-97deg, transparent 2%, #a3d6d1 2.35%, #a3d6d1 80%, transparent 80%);
 }
 
-.base::after {
+.spiken .base::after {
   content: '';
   width: 26vmin;
   height: 5.8vmin;
@@ -306,11 +313,12 @@ body {
   background: linear-gradient(97deg, transparent 2%, #c6e6e3 2.35%, #a3d6d1 10%, #91cec8 40%, transparent 80%), linear-gradient(-97deg, transparent 2%, #80c6bf 2.35%, #1eac9f 40%, #a3d6d1, transparent 80%);
 }
 
-.base input {
+.spiken .base input {
   position: absolute;
+  visibility: hidden;
 }
 
-.base label {
+.spiken .base label {
   width: 3.5vmin;
   height: 3.5vmin;
   position: absolute;
@@ -322,4 +330,43 @@ body {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   background: radial-gradient(circle at 52% 50%, #80c6bf 0.85vmin, transparent 0.85vmin), radial-gradient(circle at 46% 51.5%, #1eac9f 0.85vmin, transparent 0.88vmin), linear-gradient(185deg, #80c6bf, #a3d6d1 80%, #b5deda);
+}
+
+.frame {
+  width: 30vmin;
+  height: 30vmin;
+  position: absolute;
+  background: linear-gradient(166deg, #5b8bb5, #79aed9);
+  top: -3%;
+  left: -2.5%;
+  border: inset 5vmin #013974;
+  -webkit-box-shadow: inset 0.2vmin 0.2vmin 0.9vmin #013974, 0.2vmin 0.2vmin 0.6vmin #21456a;
+          box-shadow: inset 0.2vmin 0.2vmin 0.9vmin #013974, 0.2vmin 0.2vmin 0.6vmin #21456a;
+}
+
+@media only screen and (max-width: 600px) {
+  .frame {
+    top: 3%;
+  }
+}
+
+.frame::before {
+  content: '';
+  width: 15vmin;
+  height: 15vmin;
+  position: absolute;
+  background-color: transparent;
+  border: 2px solid #181818;
+  top: 25%;
+  left: 16%;
+}
+
+.frame p {
+  width: 2vmin;
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  font-size: 4vmin;
+  font-family: sans-serif;
+  color: #181818;
 }

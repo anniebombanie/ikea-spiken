@@ -20,7 +20,6 @@ $t: transparent;
   width: $w;
   height: $h;
 }
-
 body {
   margin: 0;
   background: $b;
@@ -33,10 +32,18 @@ body {
     #336ba4,
     $b 65%,
     darken(#dad8d8, 5%) 65.1%,
-    #dad8d8 75%
+    #dddbdb 75%
   );
-}
 
+  @media only screen and (max-width: 600px) {
+    background: linear-gradient(
+      #336ba4,
+      $b 60%,
+      darken(#dad8d8, 5%) 60.1%,
+      #dad8d8 75%
+    );
+  }
+}
 .spiken {
   // background-image: url('../resources/spiken-led-night-light-otter-shaped-battery-operated-multicolour__0831193_pe777009_s5.jpg');
   position: relative;
@@ -45,7 +52,9 @@ body {
   height: 90vmin;
   background-repeat: no-repeat;
   background-position: center;
+  // border: 1px solid red;
 
+  // shadow
   &::before {
     @include pseduo-div(42vmin, 7vmin, $g);
     top: 79.1%;
@@ -53,7 +62,6 @@ body {
     border-radius: 50%;
     background: radial-gradient(#594a3e, $t 68%);
   }
-
   .top {
     /* teal part */
     &:before {
@@ -280,65 +288,95 @@ body {
       }
     }
   }
-}
-.base {
-  @include w-h(26vmin, 10vmin);
-  // border: 1px solid red;
-  position: absolute;
-  top: 74.8%;
-  left: 35.4%;
-  box-shadow: inset -0.3vmin 0.2vmin 0.5vmin darken($tl, 15%);
-  border-radius: 25% 12% 12% 15% / 20% 20% 11% 11%;
-  background: linear-gradient(lighten($tl, 35%), $t 35%),
-    linear-gradient(
-      90deg,
-      lighten($tl, 10%),
-      darken($tl, 5%) 15%,
-      darken($tl, 10%),
-      $tl
-    ),
-    linear-gradient(-97deg, $t 2%, $tl 2.35%, $tl 80%, $t 80%);
-
-  &::after {
-    @include pseduo-div(26vmin, 5.8vmin, $t);
-    border-radius: 0 0 15% 15% / 0 0 20% 20%;
+  .base {
+    @include w-h(26vmin, 10vmin);
     // border: 1px solid red;
-    box-shadow: inset 0vmin -0.1vmin lighten($tl, 10%);
-    top: -30%;
-    background: linear-gradient(
-        97deg,
-        $t 2%,
-        lighten($tl, 10%) 2.35%,
-        $tl 10%,
-        darken($tl, 5%) 40%,
-        $t 80%
-      ),
+    position: absolute;
+    top: 74.8%;
+    left: 35.4%;
+    box-shadow: inset -0.3vmin 0.2vmin 0.5vmin darken($tl, 15%);
+    border-radius: 25% 12% 12% 15% / 20% 20% 11% 11%;
+    background: linear-gradient(lighten($tl, 35%), $t 35%),
       linear-gradient(
-        -97deg,
-        $t 2%,
-        darken($tl, 10%) 2.35%,
-        $tld 40%,
-        $tl,
-        $t 80%
-      );
-  }
-  input {
-    position: absolute;
-  }
-  label {
-    @include w-h(3.5vmin, 3.5vmin);
-    position: absolute;
-    top: 46%;
-    left: 43.5%;
-    border-radius: 20% / 20%;
-    box-shadow: 0.2vmin -0.15vmin 0.2vmin $tld;
-    transform: rotate(45deg);
-    background: radial-gradient(
-        circle at 52% 50%,
-        darken($tl, 10%) 0.85vmin,
-        $t 0.85vmin
+        90deg,
+        lighten($tl, 10%),
+        darken($tl, 5%) 15%,
+        darken($tl, 10%),
+        $tl
       ),
-      radial-gradient(circle at 46% 51.5%, $tld 0.85vmin, $t 0.88vmin),
-      linear-gradient(185deg, darken($tl, 10%), $tl 80%, lighten($tl, 5%));
+      linear-gradient(-97deg, $t 2%, $tl 2.35%, $tl 80%, $t 80%);
+
+    &::after {
+      @include pseduo-div(26vmin, 5.8vmin, $t);
+      border-radius: 0 0 15% 15% / 0 0 20% 20%;
+      // border: 1px solid red;
+      box-shadow: inset 0vmin -0.1vmin lighten($tl, 10%);
+      top: -30%;
+      background: linear-gradient(
+          97deg,
+          $t 2%,
+          lighten($tl, 10%) 2.35%,
+          $tl 10%,
+          darken($tl, 5%) 40%,
+          $t 80%
+        ),
+        linear-gradient(
+          -97deg,
+          $t 2%,
+          darken($tl, 10%) 2.35%,
+          $tld 40%,
+          $tl,
+          $t 80%
+        );
+    }
+    input {
+      position: absolute;
+      visibility: hidden;
+    }
+    label {
+      @include w-h(3.5vmin, 3.5vmin);
+      position: absolute;
+      top: 46%;
+      left: 43.5%;
+      border-radius: 20% / 20%;
+      box-shadow: 0.2vmin -0.15vmin 0.2vmin $tld;
+      transform: rotate(45deg);
+      background: radial-gradient(
+          circle at 52% 50%,
+          darken($tl, 10%) 0.85vmin,
+          $t 0.85vmin
+        ),
+        radial-gradient(circle at 46% 51.5%, $tld 0.85vmin, $t 0.88vmin),
+        linear-gradient(185deg, darken($tl, 10%), $tl 80%, lighten($tl, 5%));
+    }
+  }
+}
+.frame {
+  @include w-h(30vmin, 30vmin);
+  position: absolute;
+  background: linear-gradient(166deg, #5b8bb5, #79aed9);
+  top: -3%;
+  left: -2.5%;
+  border: inset 5vmin #013974;
+  box-shadow: inset 0.2vmin 0.2vmin 0.9vmin #013974,
+    0.2vmin 0.2vmin 0.6vmin darken(#336ba4, 15%);
+
+  @media only screen and (max-width: 600px) {
+    top: 3%;
+  }
+  &::before {
+    @include pseduo-div(15vmin, 15vmin, $t);
+    border: 2px solid $bk;
+    top: 25%;
+    left: 16%;
+  }
+  p {
+    width: 2vmin;
+    position: absolute;
+    top: 18%;
+    left: 18%;
+    font-size: 4vmin;
+    font-family: sans-serif;
+    color: $bk;
   }
 }
